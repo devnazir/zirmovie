@@ -1,12 +1,8 @@
-
-    
-
-
-
-$.ajax({
-        url: 'http://www.omdbapi.com/?apikey=98f26bef&s=harrypotter'
+function showMovie(){
+    $.ajax({
+        url: 'http://www.omdbapi.com/?apikey=98f26bef&s=' + $('.keyword').val(),
         success: result => {
-
+            if (result.Response == 'True') {
                 const movies = result.Search;
                 let data = '';
                 movies.forEach(movie => {
@@ -25,9 +21,9 @@ $.ajax({
 
                 $('.movie-container').html(data);
 
-
-
-
+            } else {
+                $('.movie-container').html(`<h1 class="text-center">` + result.Error + `</h1>`);
+            }
         },
 
         error: (e) => {
@@ -35,11 +31,15 @@ $.ajax({
         },
 
     });
+}
 
 
+$('.searchMovie').on('click', function () {
+    showMovie();
+});
 
 $('.keyword').on('keyup', function (e) {
     if(e.keyCode === 13){
-        //showMovie();
+        showMovie();
     }
 });
