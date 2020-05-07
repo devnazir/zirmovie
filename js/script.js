@@ -4,7 +4,7 @@
 
 
 $.ajax({
-        url: 'http://www.omdbapi.com/?apikey=98f26bef&s=harrypotter',
+        url: 'http://www.omdbapi.com/?apikey=98f26bef&s=harrypotter'
         success: result => {
 
                 const movies = result.Search;
