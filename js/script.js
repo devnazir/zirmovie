@@ -2,8 +2,8 @@
     
 
 
-$('.searchMovie').on('click', function () {
-    $.ajax({
+
+$.ajax({
         url: 'http://www.omdbapi.com/?apikey=98f26bef&s=' + $('.keyword').val(),
         success: result => {
             if (result.Response == 'True') {
@@ -35,8 +35,8 @@ $('.searchMovie').on('click', function () {
         },
 
     });
-}
-});
+
+
 
 $('.keyword').on('keyup', function (e) {
     if(e.keyCode === 13){
