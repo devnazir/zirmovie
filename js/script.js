@@ -6,7 +6,7 @@
 $.ajax({
         url: 'http://www.omdbapi.com/?apikey=98f26bef&s=harrypotter',
         success: result => {
-            if (result.Response == 'True') {
+
                 const movies = result.Search;
                 let data = '';
                 movies.forEach(movie => {
@@ -25,9 +25,9 @@ $.ajax({
 
                 $('.movie-container').html(data);
 
-            } else {
-                $('.movie-container').html(`<h1 class="text-center">` + result.Error + `</h1>`);
-            }
+
+
+
         },
 
         error: (e) => {
